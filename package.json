@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node backend/server.js",
-    "build": "del dist && babel backend -d dist"
+    "start": "nodemon --watch backend --exec babel-node backend/server.js"
   },
   "author": "",
   "license": "ISC",

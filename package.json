@@ -1,0 +1,39 @@
+{
+  "name": "e-pharma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec babel-node backend/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bundle": "^2.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.27",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabin-7/E-Pharma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prabin-7/E-Pharma/issues"
+  },
+  "homepage": "https://github.com/prabin-7/E-Pharma#readme",
+  "engines": {
+    "node": "12.4.0",
+    "npm": "6.9.0"
+  }
+}

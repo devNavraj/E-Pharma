@@ -18,6 +18,7 @@ mongoose
     .catch((error) => console.log(error.reason));
 
 const app = express();
+// middlewares
 app.use(bodyParser.json());
 app.use('/api/uploads', uploadRoute);
 app.use('/api/users', userRoute);

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Rating from '../components/Rating';
+import SearchIcon from '@material-ui/icons/Search';
 
 function HomeScreen(props) {
 
@@ -39,8 +40,17 @@ function HomeScreen(props) {
             <ul className="filter">
                 <li>
                     <form onSubmit={ submitHandler }>
-                        <input name="searchKeyword" onChange={(e) => setSearchKeyword(e.target.value)} />
-                        <button type="submit">Search</button>   
+                        <input 
+                            name="searchKeyword" 
+                            onChange={(e) => setSearchKeyword(e.target.value)} >
+                            
+                        </input>
+                        
+                        <button type="submit">
+                            <SearchIcon
+                                className="searchIcon"
+                            />
+                        </button>   
                     </form> 
                 </li>
                 <li>

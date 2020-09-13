@@ -14,6 +14,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 function App() {
 
@@ -38,7 +39,9 @@ function App() {
                 <Link to="/" >E-Pharma</Link>
             </div>
             <div className="header-links">
-                <Link to="/cart" >Cart</Link>
+                <Link to="/cart" > Cart  
+                  <ShoppingCartIcon className="cartIcon" />
+                </Link>
                 {
                   userInfo ? <Link to="/profile">{userInfo.name}</Link>:
                   <Link to="/signin">Sign In</Link>
@@ -61,10 +64,19 @@ function App() {
             <button className="sidebar-close-button" onClick={closeMenu}>x</button>
             <ul className="categories">
                 <li>
-                    <Link to="category/Nims">Nims</Link>
+                    <Link to="category/Anti-inflammatory">Anti-inflammatory</Link>
                 </li>
                 <li>
-                    <Link to="category/Rozavel">Rozavel</Link>
+                    <Link to="category/Anti-fungal">Anti-fungal</Link>
+                </li>
+                <li>
+                    <Link to="category/Anti-biotic">Anti-biotic</Link>
+                </li>
+                <li>
+                    <Link to="category/Rosuvastatin">Rosuvastatin</Link>
+                </li>
+                <li>
+                    <Link to="category/Esomeprazole">Esomeprazole</Link>
                 </li>
             </ul>
         </aside>

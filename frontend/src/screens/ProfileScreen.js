@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import { logout, update } from '../actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMyOrders } from '../actions/orderActions';
-
+import axios from 'axios';
 
 function ProfileScreen(props) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [contactNumber, setContactNumber] = useState('');
+    const [image, setImage] = useState('');
+    const [uploading, setUploading] = useState(false);
     const dispatch = useDispatch();
 
     const userSignin = useSelector(state => state.userSignin);
@@ -23,6 +27,26 @@ function ProfileScreen(props) {
         e.preventDefault();
         dispatch(update({ userId: userInfo._id, email, name, password }));
     }
+
+    const uploadFileHandler = (e) => {
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('image', file);
+        setUploading(true);
+        axios.post("/api/uploads", bodyFormData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          }
+        })
+        .then((response) => {
+          setImage(response.data);
+          setUploading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setUploading(false);
+        });
+      };
 
     const userUpdate = useSelector(state => state.userUpdate);
     const { loading, success, error } = userUpdate;
@@ -55,6 +79,11 @@ function ProfileScreen(props) {
                             {loading && <div>Loading...</div>}
                             {error && <div>{error}</div>}
                             {success && <div>Profile Saved Successfully.</div>}
+                        </li>
+                        <li>
+                            <div className="profile-image">
+                
+                            </div>
                         </li>
                         <li>
                             <label htmlFor="name">
@@ -93,6 +122,43 @@ function ProfileScreen(props) {
                                 id="password" 
                                 onChange={(e) => setPassword(e.target.value)}>
 
+                            </input>
+                        </li>
+                        <li>
+                            <label htmlFor="image">Image</label>
+                            <input
+                                value={image}
+                                type="text"
+                                name="image"
+                                value={image}
+                                id="image"
+                                onChange={(e) => setImage(e.target.value)}>
+                            </input>
+                            <input type="file" onChange={uploadFileHandler}></input>
+                            {uploading && <div>Uploading...</div>}
+                        </li>
+                        <li>
+                            <label htmlFor="address">
+                                Address
+                            </label>
+                            <input 
+                                value={address}
+                                type="text" 
+                                name="address" 
+                                id="address" 
+                                onChange={(e) => setAddress(e.target.value)}>
+                            </input>
+                        </li>
+                        <li>
+                            <label htmlFor="address">
+                                Contact Number
+                            </label>
+                            <input 
+                                value={contactNumber}
+                                type="text" 
+                                name="contact number" 
+                                id="contact number" 
+                                onChange={(e) => setContactNumber(e.target.value)}>
                             </input>
                         </li>
                         <li>

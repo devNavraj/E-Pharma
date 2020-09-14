@@ -32,66 +32,71 @@ function HomeScreen(props) {
     }
 
     return (
-        <>
-            { category && 
-                <h2>{category}</h2> 
-            }
+        <>  
+        <div className="home">
+            <div className="home-container">
+                { category && 
+                    <h2>{category}</h2> 
+                }
 
-            <ul className="filter">
-                <li>
-                    <form onSubmit={ submitHandler }>
-                        <input 
-                            name="searchKeyword" 
-                            onChange={(e) => setSearchKeyword(e.target.value)} >
+                <ul className="filter">
+                    <li>
+                        <form onSubmit={ submitHandler }>
+                            <input 
+                                name="searchKeyword" 
+                                onChange={(e) => setSearchKeyword(e.target.value)} >
+                                
+                            </input>
                             
-                        </input>
-                        
-                        <button type="submit">
+                            <button type="submit">
                             <SearchIcon
                                 className="searchIcon"
                             />
-                        </button>   
-                    </form> 
-                </li>
-                <li>
-                    Sort By {' '}
-                    <select name="sortOrder" onChange={ sortHandler }>
-                        <option value="">Newest</option>
-                        <option value="lowest">Lowest</option>
-                        <option value="highest">Highest</option>
-                    </select>
-                </li>
-            </ul>
-
-            {loading ? <div>Loading...</div>:
-            error ? <div>{error}</div>:
-                <ul className="products">
-                    {
-                    products.map(product =>
-                        <li key={product._id}>
-                            <div className="product">
-                                <Link to={'/product/' + product._id}>
-                                    <img className="products-image" src={product.image} alt="product" />
-                                </Link>
-                                    
-                                <div className="product-name">
-                                        <Link to={'/product/' + product._id}>{product.name}</Link>
-                                        
-                                </div>
-                                <div className="product-manufacturer">{product.manufacturer}</div>
-                                <div className="product-price">Rs.{product.price}</div>
-                                <div className="product-rating">
-                                    <Rating 
-                                        value={ product.rating } 
-                                        text={ product.numReviews + ' reviews' } 
-                                    />
-                                </div>
-                            </div>
-                        </li>)
-                    }
-                    
+                            </button> 
+                        </form> 
+                    </li>
+                    <li>
+                        Sort By {' '}
+                        <select name="sortOrder" onChange={ sortHandler }>
+                            <option value="">Newest</option>
+                            <option value="lowest">Lowest</option>
+                            <option value="highest">Highest</option>
+                        </select>
+                    </li>
                 </ul>
-            }
+
+                {loading ? <div>Loading...</div>:
+                error ? <div>{error}</div>:
+                    <ul className="products">
+                        {
+                        products.map(product =>
+                            <li key={product._id}>
+                                <div className="product">
+                                    <Link to={'/product/' + product._id}>
+                                        <img className="products-image" src={product.image} alt="product" />
+                                    </Link>
+                                        
+                                    <div className="product-name">
+                                            <Link to={'/product/' + product._id}>{product.name}</Link>
+                                            
+                                    </div>
+                                    <div className="product-manufacturer">{product.manufacturer}</div>
+                                    <div className="product-price">Rs.{product.price}</div>
+                                    <div className="product-rating">
+                                        <Rating 
+                                            value={ product.rating } 
+                                            text={ product.numReviews + ' reviews' } 
+                                        />
+                                    </div>
+                                </div>
+                            </li>)
+                        }
+                        
+                    </ul>
+                }
+            </div>
+        </div>
+            
         </>
     )
     

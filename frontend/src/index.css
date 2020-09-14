@@ -28,7 +28,7 @@ button{
     'main'
     'footer';
    grid-template-columns: 1fr;
-   grid-template-rows: 5rem 1fr 5rem;
+   grid-template-rows: 5rem 1fr 1fr;
    height: 100%;
 }
 
@@ -63,21 +63,85 @@ button{
    grid-area: main;
 }
 
-.footer{
-   grid-area: footer;
+/* Footer */
+.footer {
+   
    background-color: #008080;
    color: #ffffff;
-   justify-content: center;
-   align-items: center;
-   display: flex;
+
+}
+
+.footer-widget {
+  background-color: #c0c0c0;
+  margin: 0 10px;
+  text-align: justify;
+}
+
+.widget-title {
+  color: #000000;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.about-widget p{
+  line-height: 20px;
+  margin: 10px 0 30px 0;
+}
+
+.cards {
+  display: inline-block;
+  font-size: 30px;
+  margin-right: 12px;
+}
+
+.about-widget p span {
+  margin-right: 10px;
+}
+
+.categories-widget, .useful-pages {
+  margin-left: 50px;
+}
+
+.footer-widget ul {
+  margin-left: 20px;
+}
+
+.footer-widget ul li {
+  padding-bottom: 14px;
+}
+
+.footer-widget ul li a {
+  text-decoration: none;
+}
+
+.footer-widget ul li a:hover {
+  margin-left: 10px;
+  transition: all 0.5s ease;
+}
+
+.contact-address {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000000;
+  line-height: 20px;
+}
+
+.contact-number, .contact-email {
+  margin: 10px 0;
+}
+
+.social-widget a {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 a{
-   text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover{
-   color: #ff8000;
+  color: #ff8000;
 }
 
 /* Home Screen */
@@ -167,16 +231,16 @@ a > .rating > span:last-child {
 }
 
 /* Sidebar */
-.brand button{
+.brand button {
    font-size: 3rem;
-   padding: 0.5rem;
+   padding: 1rem;
    background: none;
    border: none;
    color: #ffffff;
    cursor: pointer;
 }
 
-.sidebar{
+.sidebar {
    position: fixed;
    transition: all 0.5s;
    transform: translateX(-30rem);
@@ -185,11 +249,11 @@ a > .rating > span:last-child {
    height: 100%;
 }
 
-.sidebar.open{
+.sidebar.open {
    transform: translateX(0);
 }
 
-.sidebar-close-button{
+.sidebar-close-button {
    border-radius: 50%;
    border: 0.1rem #000000 solid;
    width: 3rem;
@@ -200,7 +264,12 @@ a > .rating > span:last-child {
    cursor: pointer;
    position: absolute;
    right: 0.5rem;
-   top: 1.5rem;
+   top: 1rem;
+   background-color: #c0c0c0;
+}
+
+.sidebar > h3 {
+  padding-left: 1rem;
 }
 
 /* Product Details */

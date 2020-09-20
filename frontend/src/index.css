@@ -1,40 +1,40 @@
-html{
+html {
   font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
   box-sizing: border-box; 
 }
 
-body{
+body {
    font: 1.6rem Helvetica;
    height: 100vh;
    margin: 0;
 }
 
-button{
+button {
    font-size: 1.6rem;
 }
 
-.full-width{
+.full-width {
    width: 100%;
 }
 
-#root{
+#root {
   height: 100%;
 }
 
-.grid-container{
-   display: grid;
-   grid-template-areas: 
+.grid-container {
+  display: grid;
+  grid-template-areas:
     'header'
     'main'
     'footer';
-   grid-template-columns: 1fr;
-   grid-template-rows: 5rem 1fr 1fr;
-   height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 45rem;
+  height: 100%;
 }
 
-.header{
+.header {
    grid-area: header;
-   background-color: #008080;
+   background-color: #272727;
    color: #ffffff;
    display: flex;
    justify-content: space-between;
@@ -42,49 +42,60 @@ button{
    padding: 0.5rem;
 }
 
-.brand a{
+.brand a {
    color: #ffffff;
    font-size: 3rem;
    font-weight: bold;
    text-decoration: none;
 }
 
-.header-links a{
+.header-links a {
    color: #ffffff;
    text-decoration: none;
    padding: 1rem;
 }
 
 .header-links a:hover{
-   color: #ff8000;
+   color: #008b8b;
 }
 
-.main{
-   grid-area: main;
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color: #008b8b;
 }
 
 /* Footer */
 .footer {
-   
-   background-color: #008080;
-   color: #ffffff;
+  background-color: #272727;
+  color: #ffffff;
+}
 
+.footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
 }
 
 .footer-widget {
-  background-color: #c0c0c0;
   margin: 0 10px;
   text-align: justify;
 }
 
 .widget-title {
-  color: #000000;
-  margin-bottom: 30px;
+  color: #008b8b;
+  margin-bottom: 20px;
   text-transform: uppercase;
   font-size: 20px;
 }
 
-.about-widget p{
+.about-widget p {
   line-height: 20px;
   margin: 10px 0 30px 0;
 }
@@ -100,15 +111,20 @@ button{
 }
 
 .categories-widget, .useful-pages {
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
-.footer-widget ul {
-  margin-left: 20px;
+.footer-widget > ul {
+  text-decoration: none;
 }
 
-.footer-widget ul li {
-  padding-bottom: 14px;
+.footer-widget > ul li {
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+.categories-widget ul li {
+  text-decoration: none;
 }
 
 .footer-widget ul li a {
@@ -136,61 +152,76 @@ button{
   margin-right: 10px;
 }
 
-a{
-  text-decoration: none;
+.social-widget a:hover {
+  transition: all 0.5s ease;
 }
 
-a:hover{
-  color: #ff8000;
+.copyright {
+  background-color: #121212;
+  padding: 20px;
+}
+
+.copyright p {
+  color: #d2d2d2;
+  text-align: center;
+}
+
+.copyright p a {
+  text-decoration: none;
+  color: #d2d2d2;
+}
+
+.copyright p a:hover {
+  color: #00bbbb;
 }
 
 /* Home Screen */
 
 .products {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .products li {
-   list-style-type: none;
-   padding: 0;
-   flex: 0 1 34rem;
-   margin: 1rem;
-   height: 50rem;
-   border-bottom: 0.1rem #c0c0c0 solid;
+  list-style-type: none;
+  padding: 0;
+  flex: 0 1 34rem;
+  margin: 1rem;
+  height: 50rem;
+  border-bottom: 0.1rem #c0c0c0 solid;
 }
 
 .product {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .product-name {
-   font-size: 2rem;
-   font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .product-manufacturer {
-   font-size: 1.2rem;
-   color: #808080;
+  font-size: 1.5rem;
+  color: #808080;
 }
 
 .product-price {
-   font-size: 2rem;
-   font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .products-image {
-   max-width: 34rem;
-   max-height: 34rem;
+  max-width: 34rem;
+  max-height: 34rem;
 }
 
 .product-rating {
-   margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Reviews */
@@ -328,7 +359,7 @@ a > .rating > span:last-child {
   border: 0.1rem #808080 solid;
   border-radius: 0.5rem;
   cursor: pointer;
-  background-color: #4afe;
+  background-color: #00bbbb;
 }
 
 .button:hover {
@@ -598,7 +629,7 @@ a > .rating > span:last-child {
   border-radius: 0.5rem;
   border: 0.1rem #c0c0c0 solid;
   font-size: 1.6rem;
-  background-color: #4afe;
+  background-color: #00bbbb;
 }
 
 .categories {

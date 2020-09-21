@@ -5,70 +5,76 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import CreditCardIcon from '@material-ui/icons/CreditCard';
-import LockIcon from '@material-ui/icons/Lock';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import './Footer.css';
 
 function Footer() {
     return (
         <div className="footer">
-            <div className="conrainer-wrap">
-                <div className="row">
-
-                    <div className="column">
-                        <div className="footer-widget about-widget">
-                            <h2 className="widget-title">
-                                About
-                            </h2>
-                            <p>
-                                We are dedicated to making medicines easily available to every people. We care for all and try our best to connect all with the help our community.
-                            </p>
-                            <div className="cards">
-                                <CreditCardIcon className="creditcard"/>
-                            </div>
-                            <p>
+            <div className="main-container">
+                <div className="left box">
+                    <h2>About us</h2>
+                    <div className="content">
+                        <p>We are dedicated to making medicines easily available to every people. We care for all and try our best to connect all with the help our community.</p>
+                        <div className="social">
+                            <a href="https://www.facebook.com/prabinX7">
                                 <span>
-                                    <LockIcon className="lock-icon" />
+                                    <FacebookIcon className="facebook" />
                                 </span>
-                                Secure Online Payment
-                            </p>
+                            </a>
+                            <a href="https://www.instagram.com/praabiinrai/">
+                                <span>
+                                    <InstagramIcon className="instagram" />
+                                </span>
+                            </a>
+                            <a href="https://twitter.com/RaiPraabiin">
+                                <span>
+                                    <TwitterIcon className="twitter" />
+                                </span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nawaraj-rai-a410b411b/">
+                                <span>
+                                    <LinkedInIcon className="linkedin" />
+                                </span>
+                            </a>
+                            <a href="http://github.com/prabin-7">
+                                <span>
+                                    <GitHubIcon className="github" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>	
+
+                <div className="center box">
+                    <h2>Contact Us</h2>
+                    <div class="content">
+                        <div className="place">
+                            <span className="fas location">
+                                <LocationOnIcon />
+                            </span>
+                            <span className="text">Dhulikhel, Nepal</span>
+                        </div>
+                        <div className="phone">
+                            <span className="fas phone" > 
+                                <PhoneIcon />
+                            </span>
+                            <span className="text">+977 9817335059</span>
+                        </div>
+                        <div className="email">
+                            <span  className="fas email">
+                                <EmailIcon />
+                            </span>
+                            <span className="text">epharma@gmail.com</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="column">
-                    <div className="footer-widget categories-widget">
-                        <h2 className="widget-title">
-                            Categories
-                        </h2>
-                        <ul>
-                            <li>
-                                <Link to="category/Anti-inflammatory">Anti-inflammatory</Link>
-                            </li>
-                            <li>
-                                <Link to="category/Anti-fungal">Anti-fungal</Link>
-                            </li>
-                            <li>
-                                <Link to="category/Anti-biotic">Anti-biotic</Link>
-                            </li>
-                            <li>
-                                <Link to="category/Rosuvastatin">Rosuvastatin</Link>
-                            </li>
-                            <li>
-                                <Link to="category/Esomeprazole">Esomeprazole</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="column">
-                    <div className="footer-widget useful-pages">
-                        <h2 className="widget-title">
-                            Useful Links
-                        </h2>
+                <div className="right box">
+                    <h2>Useful Links</h2>
+                    <div className="content">
                         <ul>
                             <li>
                                 <Link to="/cart">Shopping Cart</Link>
@@ -90,61 +96,21 @@ function Footer() {
                             </li>
                         </ul>
                     </div>
+
                 </div>
-
-                <div className="column">
-                    <div className="footer-widget contact-widget">
-                        <h2 className="widget-title">
-                            Contact
-                        </h2>
-
-                        <div className="contact-address">
-                            <LocationOnIcon className="location-icon" />
-                            Address : Dhulikhel, Kavrepalanchowk, Nepal
-                        </div>
-
-                        <div className="contact-number">
-                            <PhoneIcon className="phone-icon" />
-                            Mobile: +977 9817335059
-                        </div>
-
-                        <div className="contact-email">
-                            <EmailIcon className="email-icon" />
-                            Email: tenet@epharma.com
-                        </div>
-
-                        <div className="social-widget">
-                            <a href="#">
-                                <FacebookIcon className="facebook" />
-                            </a>
-                            <a href="#">
-                                <InstagramIcon className="instagram" />
-                            </a>
-                            <a href="#">
-                                <TwitterIcon className="twitter" />
-                            </a>
-                            <a href="#">
-                                <LinkedInIcon className="linkedin" />
-                            </a>
-                            <a href="#">
-                                <GitHubIcon className="github" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>	
-
-            <div className="copyright">
-                <div className="container">
-                    <p>Copyright © 2020 All rights reserved. | Designed by {' '}
-                        <FavoriteIcon /> {' '}
-                        <a href="#">Team TeneT</a>
-                        {' '}<FavoriteIcon /> 
-                    </p>
-                </div>
-            
+            </div>
+            <div className="bottom">
+                <center>
+                    <span className="credit">
+                        Designed By ❤️ 
+                        <Link to="#"> TeneT </Link>
+                        ❤️ | 
+                    </span>
+                    <span> Copyright © 2020 All rights reserved. </span>
+                </center>
             </div>
         </div>
+        
     );
 }
 

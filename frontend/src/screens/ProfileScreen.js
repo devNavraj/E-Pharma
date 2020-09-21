@@ -25,7 +25,7 @@ function ProfileScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(update({ userId: userInfo._id, email, name, password }));
+        dispatch(update({ userId: userInfo._id, email, name, password, image, address, contactNumber }));
     }
 
     const uploadFileHandler = (e) => {
@@ -46,7 +46,7 @@ function ProfileScreen(props) {
           console.log(err);
           setUploading(false);
         });
-      };
+    };
 
     const userUpdate = useSelector(state => state.userUpdate);
     const { loading, success, error } = userUpdate;
@@ -60,6 +60,9 @@ function ProfileScreen(props) {
             setEmail(userInfo.email);
             setName(userInfo.name);
             setPassword(userInfo.password);
+            setImage(userInfo.image);
+            setAddress(userInfo.address);
+            setContactNumber(userInfo.contactNumber);
         }
         dispatch(listMyOrders());
         return () => {
@@ -82,7 +85,10 @@ function ProfileScreen(props) {
                         </li>
                         <li>
                             <div className="profile-image">
-                
+                                <img 
+                                    src={image}
+                                    alt="profile"    
+                                />
                             </div>
                         </li>
                         <li>
@@ -156,8 +162,8 @@ function ProfileScreen(props) {
                             <input 
                                 value={contactNumber}
                                 type="text" 
-                                name="contact number" 
-                                id="contact number" 
+                                name="contactNumber" 
+                                id="contactNumber" 
                                 onChange={(e) => setContactNumber(e.target.value)}>
                             </input>
                         </li>

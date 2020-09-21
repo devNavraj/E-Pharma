@@ -49,9 +49,9 @@ function HomeScreen(props) {
                             </input>
                             
                             <button type="submit">
-                            <SearchIcon
-                                className="searchIcon"
-                            />
+                                <SearchIcon
+                                    className="searchIcon"
+                                />
                             </button> 
                         </form> 
                     </li>

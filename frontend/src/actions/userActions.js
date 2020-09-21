@@ -35,12 +35,12 @@ const register = (name, email, password) => async (dispatch) => {
   }
 }
 
-const update = ({ userId, name, email, password }) => async (dispatch, getState) => {
+const update = ({ userId, name, email, password, image, address, contactNumber }) => async (dispatch, getState) => {
   const { userSignin: { userInfo } } = getState();
-  dispatch({ type: USER_UPDATE_REQUEST, payload: { userId, name, email, password } });
+  dispatch({ type: USER_UPDATE_REQUEST, payload: { userId, name, email, password, image, address, contactNumber } });
   try {
     const { data } = await Axios.put("/api/users/" + userId,
-      { name, email, password }, {
+      { name, email, password, image, address, contactNumber }, {
       headers: {
         Authorization: 'Bearer ' + userInfo.token
       }

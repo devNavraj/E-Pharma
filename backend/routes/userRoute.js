@@ -70,17 +70,29 @@ router.put('/:id', isAuth, async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.password = req.body.password || user.password;
+    user.image = req.body.image || user.image;
+    user.address = req.body.address || user.address;
+    user.contactNumber = req.body.contactNumber || user.contactNumber;
+
     const updatedUser = await user.save();
+
     res.send({
       _id: updatedUser.id,
       name: updatedUser.name,
       email: updatedUser.email,
+      image: updatedUser.image,
+      address: updatedUser.address,
+      contactNumber: updatedUser.contactNumber,
       isAdmin: updatedUser.isAdmin,
       token: getToken(updatedUser),
     });
-  } else {
+  } 
+  
+  else {
     res.status(404).send({ message: 'User Not Found' });
   }
+
+
 });
 
 export default router;
